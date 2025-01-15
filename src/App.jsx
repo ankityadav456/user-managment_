@@ -11,13 +11,13 @@ const listContext = createContext();
 
 
 function App() {
-    const [state, setState] = useState(true)
-  const[emplyList, setEmpList] = useState([]);
+  const [state, setState] = useState(true)
+  const [emplyList, setEmpList] = useState([]);
   return (
     <>
-     {/* <button onClick={(e) => setState(!state)}>Toggle</button> */}
-    <listContext.Provider value={{emplyList,setEmpList}}>
-       <Router>
+      {/* <button onClick={(e) => setState(!state)}>Toggle</button> */}
+      <listContext.Provider value={{ emplyList, setEmpList }}>
+        <Router>
           <Navbar />
           <Routes>
             <Route path="/add" element={<AddEmp />}></Route>
@@ -26,12 +26,12 @@ function App() {
             <Route path="/view/:id" element={<ViewEmp />}></Route>
           </Routes>
         </Router>
-    </listContext.Provider>
+      </listContext.Provider>
     </>
 
   )
 }
 
-export {listContext};
+export { listContext };
 
 export default App;
