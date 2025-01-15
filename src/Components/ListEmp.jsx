@@ -6,49 +6,49 @@ const ListEmp = () => {
 
   const [counter, setCounter] = useState(0);
 
-  // const { emplyList, setEmpList } = useContext(listContext);
-  // const navigate = useNavigate();
+  const { emplyList, setEmpList } = useContext(listContext);
+  const navigate = useNavigate();
 
-  // const handleView = (index) => {
-  //   navigate(`/view/${index+1}`);
-  // }
-
-
-  // const handleDelete = (id) => {
-  //   const FilterData = emplyList?.filter((_, index)=> index !== id);
-  //   setEmpList(FilterData);
-  //   console.log(FilterData);
-  // }
-
-  // const handleUpdate = (employe, index) =>{
-  //   navigate('/add',{employe});
-  // }
-
-  useEffect( () => {
-    console.log('Counter Mounted')
-    console.log('user updated')
-
-    return function(){
-      console.log('unMounte counter')
-    }
-  }, [])
-
-  useEffect( () => {
-    console.log('Counter Mounted', counter)
-
-    return function(){
-      console.log('Counter UseEffect Return', counter)
-    }
-  }, [counter])
-
-  const handelIncrement = () => {
-    setCounter(counter + 1);
-  };
-
-  const handelDecrement = () => {
-    if(counter === 0 ) return;
-    setCounter(counter - 1)
+  const handleView = (index) => {
+    navigate(`/view/${index+1}`);
   }
+
+
+  const handleDelete = (id) => {
+    const FilterData = emplyList?.filter((_, index)=> index !== id);
+    setEmpList(FilterData);
+    console.log(FilterData);
+  }
+
+  const handleUpdate = (employe, index) =>{
+    navigate('/add',{employe});
+  }
+
+  // useEffect( () => {
+  //   console.log('Counter Mounted')
+  //   console.log('user updated')
+
+  //   return function(){
+  //     console.log('unMounte counter')
+  //   }
+  // }, [])
+
+  // useEffect( () => {
+  //   console.log('Counter Mounted', counter)
+
+  //   return function(){
+  //     console.log('Counter UseEffect Return', counter)
+  //   }
+  // }, [counter])
+
+  // const handelIncrement = () => {
+  //   setCounter(counter + 1);
+  // };
+
+  // const handelDecrement = () => {
+  //   if(counter === 0 ) return;
+  //   setCounter(counter - 1)
+  // }
 
   // console.log('context', context);
   return (
@@ -64,7 +64,7 @@ const ListEmp = () => {
             </div>
             <div className="card-body">
               <div className="table-responsive">
-              {/* <table className="table table-striped" id="listTable">
+              <table className="table table-striped" id="listTable">
                 <thead>
                   <tr>
                     <th className="text-center">SR.NO</th>
@@ -102,14 +102,7 @@ const ListEmp = () => {
                     );
                   })}
                 </tbody>
-              </table> */}
-              <button className="btn btn-primary me-3" onClick={handelIncrement}>
-                Increment
-              </button>
-              <input className="me-3 from-orange-50" value={counter}/>
-              <button className="btn btn-primary" onClick={handelDecrement}>
-                Decrement
-              </button>
+              </table>
               </div>
             </div>
           </div>

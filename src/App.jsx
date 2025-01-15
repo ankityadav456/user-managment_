@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
 import Navbar from './Components/Navbar';
 import ListEmp from './Components/ListEmp';
-// import AddEmp from './Components/AddEmp';
+import AddEmp from './Components/AddEmp';
 import Login from './Components/Login';
 import ViewEmp from './Components/ViewEmp';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -15,12 +15,12 @@ function App() {
   const[emplyList, setEmpList] = useState([]);
   return (
     <>
-     <button onClick={(e) => setState(!state)}>Toggle</button>
+     {/* <button onClick={(e) => setState(!state)}>Toggle</button> */}
     <listContext.Provider value={{emplyList,setEmpList}}>
        <Router>
           <Navbar />
           <Routes>
-            <Route path="/add" element={<Login />}></Route>
+            <Route path="/add" element={<AddEmp />}></Route>
             <Route path="/" element={state ? < ListEmp /> : ''}></Route>
             {/* <Route path="/add" element={<AddEmp />}></Route> */}
             <Route path="/view/:id" element={<ViewEmp />}></Route>
